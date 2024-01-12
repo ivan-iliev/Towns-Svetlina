@@ -51,9 +51,9 @@ function deleteTown() {
 		}
 	}
 	if (removed)
-		$('#result').text(townName + " deleted.");
+		showMessage(townName + " deleted.");
 	else
-		$('#result').text(townName + " not found.");
+	showMessage(townName + " not found.");
 }
 
 
