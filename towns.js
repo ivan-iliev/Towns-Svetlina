@@ -1,7 +1,10 @@
-document.getElementById("btnAdd").addEventListener("click", addTown);
-
 $(document).ready(function() {
 	$('#btnDelete').click(deleteTown)
+	$('#btnAdd').click(addTown)
+
+    document.addEventListener("DOMContentLoaded", function() {
+        shuffleTowns();
+    });
 });
 
 function deleteTown() {
@@ -20,15 +23,16 @@ function deleteTown() {
 		$('#result').text(townName + " not found.");
 }
 
-function addTown(){
-	let townName = document.getElementById("townNameForAdd").value;
-	if(townName != ""){
-		document.getElementById("townNameForAdd").value = "";
-		let option = document.createElement("option");
-		option.textContent = townName;
-		document.getElementById("towns").appendChild(option);
-		showMessage(townName + " added.");	
-	}
+function addTown() {
+	let townNameField = document.getElementById('addTownInput');
+
+	let towns = document.getElementById('towns');
+	let newTown = document.createElement('option');
+
+	newTown.textContent = townNameField.value;
+
+	townNameField.value = '';
+	towns.appendChild(newTown);
 }
 
 
