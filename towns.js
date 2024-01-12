@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	$('#btnDelete').click(deleteTown)
-    $('#btnShuffle').click(shuffleTowns);
-    
-    // Existing code for shuffling towns when the page is loaded
+	$('#btnAdd').click(addTown)
+  $('#btnShuffle').click(shuffleTowns);
+
     document.addEventListener("DOMContentLoaded", function() {
         shuffleTowns();
     });
@@ -56,3 +56,15 @@ function deleteTown() {
 		$('#result').text(townName + " not found.");
 }
 
+
+function addTown() {
+	let townNameField = document.getElementById('addTownInput');
+
+	let towns = document.getElementById('towns');
+	let newTown = document.createElement('option');
+
+	newTown.textContent = townNameField.value;
+
+	townNameField.value = '';
+	towns.appendChild(newTown);
+}
